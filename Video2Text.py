@@ -48,7 +48,7 @@ class Video2Text:
             # Pass audio chunks collected from audio, to Speech to Text Model and return transcription text of video.
             st = Speech2Text(audio_splitter)
             transcript = await st.convertSpeechToText()
-            print("Transcript", transcript)
+            print("Transcript:", transcript)
         else:
             print("Splitting failed")
             return
