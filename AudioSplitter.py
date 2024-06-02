@@ -17,19 +17,19 @@ class AudioSplitter:
           
        def split_audio(self)->bool|str|None:
           try:
-                  # Load the audio file
+                  #Load the audio file
                audio = AudioSegment.from_file(self.audio_file)
 
-       # Calculate the number of chunks
+               #Calculate the number of chunks
                file_size = os.path.getsize(self.audio_file)
          
                num_chunks = math.ceil(file_size / self.chunk_size)
 
-    # Calculate chunk duration in milliseconds
+               #Calculate chunk duration in milliseconds
                duration_ms = len(audio)
                chunk_duration_ms = duration_ms / num_chunks
 
-    # Split and save audio chunks
+               #Split and save audio chunks
                
                for i in range(num_chunks):
                 start_time = i * chunk_duration_ms

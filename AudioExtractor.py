@@ -3,7 +3,7 @@ import ffmpeg
 from CommonUtils import CommonUtils
 import sys
 
-#FFMPEG_PATH = r"C:\ffmpeg\bin\ffmpeg.exe"
+
 class AudioExtractor:
     
     def __init__(self, video_path, output_path="output/audio/", format="wav"):

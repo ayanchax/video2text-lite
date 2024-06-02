@@ -35,6 +35,7 @@ class Video2Text:
             audio_path = audioExtractor["result"]
             print("Audio extracted successfully at", audio_path)
             # 3 Gather audio chunks from extracted Audio file
+            # We are gathering audio chunks from the audio so that we do not overload the speech to text functionality with a large audio file at once. 
             audio_splitter = AudioSplitter(audio_path).split_audio()
 
         else:
