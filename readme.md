@@ -53,10 +53,10 @@ To clone the Video2Text repository from Git and set it up on your local machine,
 3. Run the following command:
 
 ```bash
-git clone https://github.com/your_username/Video2Text.git
+git clone https://github.com/ayanchax/video2text-lite.git
 ```
 
-Replace `your_username` with your GitHub username.
+
 
 ## Setting Up a Virtual Environment
 
