@@ -1,0 +1,8 @@
+Check if the video has subtitles.
+Check if the video has audio.
+Process according to the available data (audio, subtitles, both, or neither).
+     Extract audio and subtitles from video if available.
+
+Use object detection and scene recognition for mute videos without audio or subtitles.
+
+Summarize the text data obtained from any of the above methods.
