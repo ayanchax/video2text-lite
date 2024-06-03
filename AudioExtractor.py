@@ -15,6 +15,17 @@ class AudioExtractor:
         self.utils = CommonUtils()
 
     def extractAudio(self):
+        """
+    Extracts audio from a video file using ffmpeg-python.
+
+    Parameters:
+    self (AudioExtractor): The instance of the AudioExtractor class.
+
+    Returns:
+    dict: A dictionary containing the result or error information.
+          If successful, the dictionary contains the key "result" with the path of the extracted audio file.
+          If an error occurs, the dictionary contains the keys "error" and "exception" with the error details.
+    """
         try:
             
             output_filename = self.utils.get_file_name_without_extension(self.video_path)

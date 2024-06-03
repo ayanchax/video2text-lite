@@ -10,6 +10,18 @@ class VideoDownloader:
         self.output_path = output_path
 
     def download(self):
+         """
+    Downloads a video from a given URL.
+
+    Parameters:
+    self (VideoDownloader): The instance of the VideoDownloader class.
+    url (str): The URL of the video to be downloaded.
+
+    Returns:
+    dict: A dictionary containing the result or error information.
+          If successful, the dictionary will contain the key 'result' with the path of the downloaded video.
+          If an error occurs, the dictionary will contain the keys 'error' and 'exception' with the error details.
+    """
          try:
              # Check if the input is a YouTube URL
           if 'youtube.com' in self.url or 'youtu.be' in self.url:

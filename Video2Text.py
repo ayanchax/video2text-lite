@@ -13,8 +13,19 @@ class Video2Text:
         self.video_input = video_input
 
     async def workflow(self):
+        """
+    This function orchestrates the entire video to text conversion process.
+    It handles video downloading, audio extraction, audio chunking, speech to text conversion, and optionally, text summarization.
+
+    Parameters:
+    self (Video2Text): The instance of the Video2Text class.
+
+    Returns:
+    str: The transcript of the video or a summary of the transcript if the summarize flag is True.
+    str: "FAILED" if any step of the process fails.
+    """
         video_input=self.video_input
-        # Check if the input is a YouTube URL or a local file
+        # Check if the input is a URL or a local file
         if video_input.startswith("http://") or video_input.startswith("https://"):
             video_type = "url"
             downloader = VideoDownloader(video_input).download()

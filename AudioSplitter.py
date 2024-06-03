@@ -16,6 +16,16 @@ class AudioSplitter:
             os.makedirs(self.chunk_output_path, exist_ok=True)
           
        def split_audio(self)->bool|str|None:
+          """
+    This function splits the given audio file into smaller chunks.
+
+    Parameters:
+    self (AudioSplitter): The instance of the AudioSplitter class.
+
+    Returns:
+    bool|str|None: Returns the path of the directory where the chunks are saved if successful.
+                   Returns None if an exception occurs.
+    """
           try:
                   #Load the audio file
                audio = AudioSegment.from_file(self.audio_file)
