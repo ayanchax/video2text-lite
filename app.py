@@ -5,10 +5,9 @@ from Video2Text import Video2Text
 if __name__ == "__main__":
     async def main():
         # Initialize Video2Text instance
-        v2t = Video2Text()
+        v2t = Video2Text("https://www.youtube.com/watch?v=hfIUstzHs9A")
         # Call workflow asynchronously
-        video_input ="output/video/Generative AI in a Nutshell - how to survive and thrive in the age of AI.mp4"
-        v2tSummary=await v2t.workflow(video_input)
-        print("Summary:",v2tSummary)
+        v2tResult=await v2t.workflow()
+        print("Result:",v2tResult)
     # Run main asynchronously
     asyncio.run(main())

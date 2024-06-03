@@ -35,3 +35,16 @@ class CommonUtils:
                       files.sort(key=lambda x: os.path.basename(x).lower())  # Sorting case-insensitively
             
             return files
+
+    def delete_file(self, file_path):
+        try:
+            os.remove(os.path.abspath(file_path))
+        except FileNotFoundError:
+            print("File not found:", file_path)
+
+    def delete_files(self, dirpath, file_extensions=("mp3")):
+        dirpath = os.path.abspath(dirpath)
+        files = self.list_files(dirpath)
+        for file in files:
+            if file.endswith(tuple(file_extensions)):
+                self.delete_file(file)

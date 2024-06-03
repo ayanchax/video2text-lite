@@ -23,7 +23,7 @@ class Speech2Text:
        
        async def convertSpeechToText(self):
                  ct = CommonUtils()
-                 files = ct.list_files(self.audio_path)
+                 files = ct.list_files(self.audio_path)[:2]
                  transcription = ''
                  semaphore = Semaphore(self.max_concurrent_tasks)
                  tasks = [self._convertSpeechToText(file,semaphore) for file in files]

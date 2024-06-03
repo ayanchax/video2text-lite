@@ -1,7 +1,8 @@
 import os
-import ffmpeg
+from ffmpeg import FFmpeg
 from CommonUtils import CommonUtils
 import sys
+
 
 
 class AudioExtractor:
@@ -17,14 +18,14 @@ class AudioExtractor:
         try:
             
             output_filename = self.utils.get_file_name_without_extension(self.video_path)
-            print(output_filename)
             audio_output = os.path.join(
                 self.output_path, output_filename + "." + self.format
             )
+             
             # Extract audio from video using ffmpeg-python
-            ffmpeg.input(self.video_path).output(
+            FFmpeg().option("y").input(self.video_path).output(
                 audio_output, format=self.format, q="0"
-            ).run(overwrite_output=True)
+            ).execute()
             return {
                 "result": audio_output,
             }
