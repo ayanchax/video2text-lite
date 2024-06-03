@@ -5,20 +5,20 @@ class CommonUtils:
 
     def __init__(self):
         pass
-    
-    def get_file_name_without_extension(self,file_path):
+
+    def get_file_name_without_extension(self, file_path):
         """
-    This method extracts the file name from a given file path and returns it without the extension.
+        This method extracts the file name from a given file path and returns it without the extension.
 
-    Parameters:
-    file_path (str): The path of the file from which to extract the file name.
+        Parameters:
+        file_path (str): The path of the file from which to extract the file name.
 
-    Returns:
-    str: The file name without the extension. If an error occurs during the process, returns None.
+        Returns:
+        str: The file name without the extension. If an error occurs during the process, returns None.
 
-    Raises:
-    Exception: If any error occurs during the process.
-    """
+        Raises:
+        Exception: If any error occurs during the process.
+        """
         try:
             # Extract the base name (file name with extension)
             base_name = os.path.basename(file_path)
@@ -26,8 +26,8 @@ class CommonUtils:
             # Split the base name to remove the extension
             return os.path.splitext(base_name)[0]
         except Exception as e:
-               return None
-        
+            return None
+
     def list_files(self, dirpath: str, defaultSort=True, sortByName=False) -> list:
         """
         Get a list of files in a given directory
@@ -35,20 +35,26 @@ class CommonUtils:
         dirpath = os.path.abspath(dirpath)
         # List all files and directories in the specified path
         all_items = os.listdir(dirpath)
-        
+
         # Filter out only the files
-        files = [dirpath+"/"+item for item in all_items if os.path.isfile(os.path.join(dirpath, item))]
-        
-            # Verify file existence and sort files by their modification timestamp in ascending order
+        files = [
+            dirpath + "/" + item
+            for item in all_items
+            if os.path.isfile(os.path.join(dirpath, item))
+        ]
+
+        # Verify file existence and sort files by their modification timestamp in ascending order
         if defaultSort is True:
-                existing_files = [file for file in files if os.path.exists(file)]
-                existing_files.sort(key=os.path.getmtime)
-                files=existing_files
+            existing_files = [file for file in files if os.path.exists(file)]
+            existing_files.sort(key=os.path.getmtime)
+            files = existing_files
         else:
             if sortByName is True:
-                      #Sort files by their names in ascending order
-                      files.sort(key=lambda x: os.path.basename(x).lower())  # Sorting case-insensitively
-            
+                # Sort files by their names in ascending order
+                files.sort(
+                    key=lambda x: os.path.basename(x).lower()
+                )  # Sorting case-insensitively
+
         return files
 
     def delete_file(self, file_path):
